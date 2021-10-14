@@ -9,7 +9,7 @@ const GrapesConfig = () => {
     // As an alternative we could use: `components: '<h1>Hello World Component!</h1>'`,
     fromElement: true,
     // Size of the editor
-    height: '300px',
+    height: '100%',
     width: 'auto',
 
     // append blocks
@@ -45,6 +45,12 @@ const GrapesConfig = () => {
             active: true,
             label: 'Traits',
             command: 'show-traits',
+            togglable: false,
+          }, {
+            id: 'show-blocks',
+            active: true,
+            label: 'Blocks',
+            command: 'show-blocks',
             togglable: false,
           }],
         },
@@ -129,7 +135,7 @@ const GrapesConfig = () => {
         width: '620px', // this value will be used on canvas width
         widthMedia: '768px', // this value will be used in CSS @media
       }, {
-        name: 'Mobile', 
+        name: 'Mobile',
         width: '320px', // this value will be used on canvas width
         widthMedia: '480px', // this value will be used in CSS @media
       }]

@@ -105,6 +105,18 @@ const App = () => {
         this.getTraitsEl(editor).style.display = 'none';
       },
     });
+    editor.Commands.add('show-blocks', {
+      getTraitsEl (editor) {
+        const row = editor.getContainer().closest('.editor-row');
+        return row.querySelector('.blocks-container');
+      },
+      run (editor, sender) {
+        this.getTraitsEl(editor).style.display = '';
+      },
+      stop (editor, sender) {
+        this.getTraitsEl(editor).style.display = 'none';
+      },
+    });
     // Commands
     editor.Commands.add('set-device-desktop', {
       run: editor => editor.setDevice('Desktop')
@@ -121,7 +133,7 @@ const App = () => {
     loadComponents(editor)
   }
   return (
-    <>
+    <div className="App">
       <div className="panel__top">
         <div className="panel__basic-actions"></div>
         <div className="panel__devices"></div>
@@ -137,10 +149,10 @@ const App = () => {
           <div className="layers-container"></div>
           <div className="styles-container"></div>
           <div className="traits-container"></div>
+          <div className="blocks-container" id="blocks"></div>
         </div>
       </div>
-      <div id="blocks"></div>
-    </>
+    </div>
   )
 }
 export default App

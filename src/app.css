@@ -1,3 +1,7 @@
+.App {
+  background: red;
+  height: 100vh;
+}
 /* Let's highlight canvas boundaries */
 #gjs {
   border: 3px solid #444;
@@ -19,6 +23,7 @@
 .panel__top {
   padding: 0;
   width: 100%;
+  height: 5.5vh;
   display: flex;
   position: initial;
   justify-content: center;
@@ -34,7 +39,7 @@
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: nowrap;
-  height: 300px;
+  height: 93.6vh;
 }
 
 .editor-canvas {
@@ -43,7 +48,7 @@
 
 .panel__right {
   flex-basis: 230px;
-  height: 100%;
+  height: 94.5vh;
   background: #444444;
   position: relative;
   overflow-y: auto;
