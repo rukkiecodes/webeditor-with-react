@@ -30,26 +30,26 @@ const GrapesConfig = () => {
           buttons: [{
             id: 'show-layers',
             active: true,
-            label: 'Layers',
+            label: `<span class="mdi mdi-layers-outline"></span>`,
             command: 'show-layers',
             // Once activated disable the possibility to turn it off
             togglable: false,
           }, {
             id: 'show-style',
             active: true,
-            label: 'Styles',
+            label: `<span class="mdi mdi-brush"></span>`,
             command: 'show-styles',
             togglable: false,
           }, {
             id: 'show-traits',
             active: true,
-            label: 'Traits',
+            label: `<span class="mdi mdi-format-list-bulleted"></span>`,
             command: 'show-traits',
             togglable: false,
           }, {
             id: 'show-blocks',
             active: true,
-            label: 'Blocks',
+            label: `<span class="mdi mdi-view-grid"></span>`,
             command: 'show-blocks',
             togglable: false,
           }],
@@ -59,18 +59,18 @@ const GrapesConfig = () => {
           el: '.panel__devices',
           buttons: [{
             id: 'device-desktop',
-            label: 'D',
+            label: `<span class="mdi mdi-desktop-mac"></span>`,
             command: 'set-device-desktop',
             active: true,
             togglable: false,
           }, {
             id: 'device-iPad',
-            label: 'T',
+            label: `<span class="mdi mdi-tablet-ipad"></span>`,
             command: 'set-device-iPad',
             togglable: false,
           }, {
             id: 'device-mobile',
-            label: 'M',
+            label: `<span class="mdi mdi-cellphone-android"></span>`,
             command: 'set-device-mobile',
             togglable: false,
           }],

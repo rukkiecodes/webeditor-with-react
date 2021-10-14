@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import grapesjs from 'grapesjs';
 import 'grapesjs/dist/css/grapes.min.css';
 import GrapesConfig from "./GrapesConfig"
+import './icon/css/materialdesignicons.min.css'
 import './app.css'
 
 
@@ -39,18 +40,18 @@ const App = () => {
           id: 'visibility',
           active: true, // active by default
           className: 'btn-toggle-borders',
-          label: '<u>B</u>',
+          label: `<span class="mdi mdi-border-all-variant"></span>`,
           command: 'sw-visibility', // Built-in command
         }, {
           id: 'export',
           className: 'btn-open-export',
-          label: 'Exp',
+          label: `<span class="mdi mdi-code-tags"></span>`,
           command: 'export-template',
           context: 'export-template', // For grouping context of buttons from the same panel
         }, {
           id: 'show-json',
           className: 'btn-show-json',
-          label: 'JSON',
+          label: `<span class="mdi mdi-code-json"></span>`,
           context: 'show-json',
           command (editor) {
             editor.Modal.setTitle('Components JSON')
@@ -59,7 +60,7 @@ const App = () => {
           </textarea>`)
               .open();
           },
-        }
+        },
       ],
     });
     // Define commands
@@ -135,8 +136,11 @@ const App = () => {
   return (
     <div className="App">
       <div className="panel__top">
-        <div className="panel__basic-actions"></div>
-        <div className="panel__devices"></div>
+        <div className="left">
+          <div className="panel__devices"></div>
+          <div className="logo">Logo</div>
+          <div className="panel__basic-actions"></div>
+        </div>
         <div className="panel__switcher"></div>
       </div>
       <div className="editor-row">
