@@ -4,6 +4,7 @@ import 'grapesjs/dist/css/grapes.min.css';
 import GrapesConfig from "./GrapesConfig"
 import './icon/css/materialdesignicons.min.css'
 import './app.css'
+import logoLight from "./logoLight.png"
 
 
 const App = () => {
@@ -138,7 +139,10 @@ const App = () => {
       <div className="panel__top">
         <div className="left">
           <div className="panel__devices"></div>
-          <div className="logo">Logo</div>
+          <div className="logo">
+            <img src={logoLight} className="logo_image" />
+            <span>Railer</span>
+          </div>
           <div className="panel__basic-actions"></div>
         </div>
         <div className="panel__switcher"></div>

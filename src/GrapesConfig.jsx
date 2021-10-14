@@ -87,10 +87,10 @@ const GrapesConfig = () => {
     styleManager: {
       appendTo: '.styles-container',
       sectors: [{
-        name: 'Dimension',
-        open: false,
+        name: 'Box model',
+        open: true,
         // Use built-in properties
-        buildProps: ['width', 'min-height', 'padding', 'display', 'color', 'background-color'],
+        buildProps: ['width', 'min-height', 'padding', 'display'],
         // Use `properties` to define/override single property
         properties: [
           {
@@ -104,6 +104,13 @@ const GrapesConfig = () => {
             min: 0, // Min value, available only for 'integer' types
           }
         ]
+      }, {
+        name: 'Coloring',
+        open: false,
+        // Use built-in properties
+        buildProps: ['color', 'background-color'],
+        // Use `properties` to define/override single property
+        properties: []
       }, {
         name: 'Extra',
         open: false,

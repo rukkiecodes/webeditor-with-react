@@ -36,6 +36,19 @@
   align-items: center;
 }
 
+.panel__top .left .logo {
+  display: flex;
+  align-items: center;
+}
+
+.panel__top .left .logo .logo_image {
+  width: 40px
+}
+.panel__top .left .logo span {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
 .panel__basic-actions {
   position: initial;
 }
