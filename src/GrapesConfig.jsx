@@ -40,6 +40,33 @@ const GrapesConfig = () => {
             label: 'Styles',
             command: 'show-styles',
             togglable: false,
+          }, {
+            id: 'show-traits',
+            active: true,
+            label: 'Traits',
+            command: 'show-traits',
+            togglable: false,
+          }],
+        },
+        {
+          id: 'panel-devices',
+          el: '.panel__devices',
+          buttons: [{
+            id: 'device-desktop',
+            label: 'D',
+            command: 'set-device-desktop',
+            active: true,
+            togglable: false,
+          }, {
+            id: 'device-iPad',
+            label: 'T',
+            command: 'set-device-iPad',
+            togglable: false,
+          }, {
+            id: 'device-mobile',
+            label: 'M',
+            command: 'set-device-mobile',
+            togglable: false,
           }],
         }
       ]
@@ -91,6 +118,25 @@ const GrapesConfig = () => {
           }
         ]
       }]
+    },
+
+    deviceManager: {
+      devices: [{
+        name: 'Desktop',
+        width: '', // default size
+      }, {
+        name: 'Ipad',
+        width: '620px', // this value will be used on canvas width
+        widthMedia: '768px', // this value will be used in CSS @media
+      }, {
+        name: 'Mobile', 
+        width: '320px', // this value will be used on canvas width
+        widthMedia: '480px', // this value will be used in CSS @media
+      }]
+    },
+
+    traitManager: {
+      appendTo: '.traits-container',
     },
 
     // Disable the storage manager for the moment

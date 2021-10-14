@@ -43,10 +43,16 @@
 
 .panel__right {
   flex-basis: 230px;
+  height: 100%;
+  background: #444444;
   position: relative;
   overflow-y: auto;
 }
 
 .panel__switcher {
+  position: initial;
+}
+
+.panel__devices {
   position: initial;
 }

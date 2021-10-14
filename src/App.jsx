@@ -63,33 +63,58 @@ const App = () => {
       ],
     });
     // Define commands
-    // editor.Commands.add('show-layers', {
-    //   getRowEl (editor) { return editor.getContainer().closest('.editor-row'); },
-    //   getLayersEl (row) { return row.querySelector('.layers-container') },
+    editor.Commands.add('show-layers', {
+      getRowEl (editor) { return editor.getContainer().closest('.editor-row'); },
+      getLayersEl (row) { return row.querySelector('.layers-container') },
 
-    //   run (editor, sender) {
-    //     const lmEl = this.getLayersEl(this.getRowEl(editor));
-    //     lmEl.style.display = '';
-    //   },
-    //   stop (editor, sender) {
-    //     const lmEl = this.getLayersEl(this.getRowEl(editor));
-    //     lmEl.style.display = 'none';
-    //   },
-    // });
+      run (editor, sender) {
+        const lmEl = this.getLayersEl(this.getRowEl(editor));
+        lmEl.style.display = '';
+      },
+      stop (editor, sender) {
+        const lmEl = this.getLayersEl(this.getRowEl(editor));
+        lmEl.style.display = 'none';
+      },
+    });
 
-    // editor.Commands.add('show-styles', {
-    //   getRowEl (editor) { return editor.getContainer().closest('.editor-row'); },
-    //   getStyleEl (row) { return row.querySelector('.styles-container') },
+    editor.Commands.add('show-styles', {
+      getRowEl (editor) { return editor.getContainer().closest('.editor-row'); },
+      getStyleEl (row) { return row.querySelector('.styles-container') },
 
-    //   run (editor, sender) {
-    //     const smEl = this.getStyleEl(this.getRowEl(editor));
-    //     smEl.style.display = '';
-    //   },
-    //   stop (editor, sender) {
-    //     const smEl = this.getStyleEl(this.getRowEl(editor));
-    //     smEl.style.display = 'none';
-    //   },
-    // });
+      run (editor, sender) {
+        const smEl = this.getStyleEl(this.getRowEl(editor));
+        smEl.style.display = '';
+      },
+      stop (editor, sender) {
+        const smEl = this.getStyleEl(this.getRowEl(editor));
+        smEl.style.display = 'none';
+      },
+    });
+
+    // Define command
+    // ...
+    editor.Commands.add('show-traits', {
+      getTraitsEl (editor) {
+        const row = editor.getContainer().closest('.editor-row');
+        return row.querySelector('.traits-container');
+      },
+      run (editor, sender) {
+        this.getTraitsEl(editor).style.display = '';
+      },
+      stop (editor, sender) {
+        this.getTraitsEl(editor).style.display = 'none';
+      },
+    });
+    // Commands
+    editor.Commands.add('set-device-desktop', {
+      run: editor => editor.setDevice('Desktop')
+    });
+    editor.Commands.add('set-device-iPad', {
+      run: editor => editor.setDevice('Ipad')
+    });
+    editor.Commands.add('set-device-mobile', {
+      run: editor => editor.setDevice('Mobile')
+    });
   }
   const loadGrapesJs = async () => {
     const editor = await grapesjs.init(GrapesConfig())
@@ -99,17 +124,19 @@ const App = () => {
     <>
       <div className="panel__top">
         <div className="panel__basic-actions"></div>
+        <div className="panel__devices"></div>
         <div className="panel__switcher"></div>
       </div>
       <div className="editor-row">
         <div className="editor-canvas">
           <div id="gjs">
-            <h1>Hello world component</h1>
+            <h1>Hello world component Rukkie</h1>
           </div>
         </div>
         <div className="panel__right">
           <div className="layers-container"></div>
           <div className="styles-container"></div>
+          <div className="traits-container"></div>
         </div>
       </div>
       <div id="blocks"></div>
