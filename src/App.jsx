@@ -12,6 +12,7 @@ import tripleColumn from "./tripleColumn.svg"
 import doubleFractionColumn from "./doubleFractionColumn.svg"
 import text from "./text.svg"
 import image from "./image.svg"
+import video from "./video.svg"
 
 
 const App = () => {
@@ -183,6 +184,16 @@ const App = () => {
       select: true,
       content: { type: 'image' },
       activate: true,
+      editable: true,
+    });
+
+    bm.add('video-block', {
+      category: 'Basic',
+      label: `<div class="styleBlock"><img style="width: 90%" src="${video}"><span>Video</span></div>`,
+      attributes: { class: 'image_block' },
+      select: false,
+      content: { type: 'video' },
+      activate: false,
       editable: true,
     });
 

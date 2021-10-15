@@ -92,7 +92,8 @@
 .column_two .styleBlock,
 .column_three .styleBlock,
 .text_block .styleBlock,
-.image_block, .styleBlock {
+.image_block, .styleBlock,
+.video_block, .styleBlock {
   height: 100%;
   display: flex;
   flex-direction: column;
