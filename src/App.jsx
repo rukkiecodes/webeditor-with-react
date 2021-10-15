@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect } from 'react'
 import grapesjs from 'grapesjs';
 import 'grapesjs/dist/css/grapes.min.css';
@@ -5,30 +6,192 @@ import GrapesConfig from "./GrapesConfig"
 import './icon/css/materialdesignicons.min.css'
 import './app.css'
 import logoLight from "./logoLight.png"
+import singleColumn from "./singleColumn.svg"
+import doubleColumn from "./doubleColumn.svg"
+import tripleColumn from "./tripleColumn.svg"
+import doubleFractionColumn from "./doubleFractionColumn.svg"
 
 
 const App = () => {
   useEffect(() => { loadGrapesJs() }, [])
   const loadComponents = (editor) => {
-    editor.BlockManager.add('my-block-id', {
-      label: "<b>Block</b>",
-      content: {
-        tagName: 'div',
-        draggable: true,
-        attributes: { 'some-attribute': 'some-value' },
-        components: [
-          {
-            tagName: 'span',
-            content: '<b>Some static content</b>',
-          }, {
-            tagName: 'div',
-            // use `content` for static strings, `components` string will be parsed
-            // and transformed in Components
-            components: '<span>HTML at some point</span>',
-          }
-        ]
-      }
+    const bm = editor.BlockManager;
+    // const toAdd = name => config.blocks.indexOf(name) >= 0;
+
+    bm.add('one-column', {
+      category: 'Basic',
+      label: `<div class="styleBlock"><img style="width: 90%" src="${singleColumn}"><span>1 column</span></div>`,
+      attributes: { class: 'column_one' },
+      content: [
+        `
+          <div class="row" id="itbl">
+            <div class="cell">
+            </div>
+          </div>
+          <style>
+            .row{
+                display:flex;
+                justify-content:flex-start;
+                align-items:stretch;
+                flex-wrap:nowrap;
+                padding:10px;
+              }
+              .cell{
+                min-height:75px;
+                flex-grow:1;
+                flex-basis:100%;
+              }
+              @media (max-width: 768px){
+                .row{
+                  flex-wrap:wrap;
+                }
+              }
+          </style>`,
+      ],
     })
+    bm.add('two-columns', {
+      category: 'Basic',
+      label: `<div class="styleBlock"><img style="width: 90%" src="${doubleColumn}"><span>2 columns</span></div>`,
+      attributes: { class: 'column_two' },
+      content: [
+        `
+          <div class="row">
+            <div class="cell">
+            </div>
+            <div class="cell">
+            </div>
+          </div>
+          <style>
+            .row{
+              display:flex;
+              justify-content:flex-start;
+              align-items:stretch;
+              flex-wrap:nowrap;
+              padding:10px;
+            }
+            .cell{
+              min-height:75px;
+              flex-grow:1;
+              flex-basis:100%;
+            }
+            @media (max-width: 768px){
+              .row{
+                flex-wrap:wrap;
+              }
+            }
+          </style>`,
+      ],
+    })
+    bm.add('three-columns', {
+      category: 'Basic',
+      label: `<div class="styleBlock"><img style="width: 90%" src="${tripleColumn}"><span>3 columns</span></div>`,
+      attributes: { class: 'column_three' },
+      content: [
+        `
+          <div class="row">
+            <div class="cell">
+            </div>
+            <div class="cell">
+            </div>
+            <div class="cell">
+            </div>
+          </div>
+          <style>
+            .row{
+              display:flex;
+              justify-content:flex-start;
+              align-items:stretch;
+              flex-wrap:nowrap;
+              padding:10px;
+            }
+            .cell{
+              min-height:75px;
+              flex-grow:1;
+              flex-basis:100%;
+            }
+            @media (max-width: 768px){
+              .row{
+                flex-wrap:wrap;
+              }
+            }
+          </style>`,
+      ],
+    })
+
+    bm.add('two-columns-3', {
+      category: 'Basic',
+      label: `<div class="styleBlock"><img style="width: 90%" src="${doubleFractionColumn}"><span>2 columns 3/7</span></div>`,
+      attributes: { class: 'column_two' },
+      content: [
+        `
+          <div class="row">
+            <div class="cell" id="imo4">
+            </div>
+            <div class="cell" id="isxu">
+            </div>
+          </div>
+          <style>
+            .row{
+              display:flex;
+              justify-content:flex-start;
+              align-items:stretch;
+              flex-wrap:nowrap;
+              padding:10px;
+            }
+            .cell{
+              min-height:75px;
+              flex-grow:1;
+              flex-basis:100%;
+            }
+            #imo4{
+              flex-basis:30%;
+            }
+            #isxu{
+              flex-basis:70%;
+            }
+            @media (max-width: 768px){
+              .row{
+                flex-wrap:wrap;
+              }
+            }
+          </style>`,
+      ],
+    })
+
+    bm.add('link-block', {
+      category: 'Basic',
+      label: 'Link Block',
+      attributes: { class: 'fa fa-link' },
+      content: {
+        type: 'link',
+        editable: false,
+        droppable: true,
+        style: {
+          display: 'inline-block',
+          padding: '5px',
+          'min-height': '50px',
+          'min-width': '50px'
+        }
+      },
+    });
+    bm.add('quote', {
+      label: 'Quote',
+      category: 'Basic',
+      attributes: { class: 'fa fa-quote-right' },
+      content: `<blockquote class="quote">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit
+      </blockquote>`
+    });
+
+    bm.add('text-basic', {
+      category: 'Basic',
+      label: 'Text section',
+      attributes: { class: 'gjs-fonts gjs-f-h1p' },
+      content: `<section class="bdg-sect">
+      <h1 class="heading">Insert title here</h1>
+      <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+      </section>`
+    });
     editor.Panels.addPanel({
       id: 'panel-top',
       el: '.panel__top',
@@ -149,9 +312,7 @@ const App = () => {
       </div>
       <div className="editor-row">
         <div className="editor-canvas">
-          <div id="gjs">
-            <h1>Hello world component Rukkie</h1>
-          </div>
+          <div id="gjs"></div>
         </div>
         <div className="panel__right">
           <div className="layers-container"></div>

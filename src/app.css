@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Lobster&display=swap');
+
 .App {
   height: 100vh;
 }
@@ -34,6 +36,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .panel__top .left .logo {
@@ -44,7 +47,9 @@
 .panel__top .left .logo .logo_image {
   width: 40px
 }
+
 .panel__top .left .logo span {
+  font-family: 'Comfortaa', cursive;
   font-size: 1.2rem;
   font-weight: 400;
 }
@@ -80,4 +85,35 @@
 
 .panel__devices {
   position: initial;
+}
+
+
+.column_one .styleBlock,
+.column_two .styleBlock,
+.column_three .styleBlock {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+.column_one .styleBlock span:first-child {
+  /* font-size: 5rem; */
+  /* margin-top: -18px; */
+}
+
+.column_two .styleBlock span:first-child {
+  font-size: 4rem;
+  margin-top: 0px;
+  transform: rotateZ(90deg);
+}
+
+.column_three .styleBlock span:first-child {
+  /* font-size: 4rem;
+  margin-top: 0px; */
+}
+
+.gjs-block {
+  width: 44.5%
 }
