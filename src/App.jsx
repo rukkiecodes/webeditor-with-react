@@ -11,6 +11,7 @@ import doubleColumn from "./doubleColumn.svg"
 import tripleColumn from "./tripleColumn.svg"
 import doubleFractionColumn from "./doubleFractionColumn.svg"
 import text from "./text.svg"
+import image from "./image.svg"
 
 
 const App = () => {
@@ -161,7 +162,7 @@ const App = () => {
 
     bm.add('text-block', {
       category: 'Basic',
-      label: `<div class="styleBlock"><img style="width: 90%" src="${text}"><span>Text</span></div>`,
+      label: `<div class="styleBlock"><img style="width: 80%" src="${text}"><span>Text</span></div>`,
       attributes: { class: 'text_block' },
       content: [
         `
@@ -173,6 +174,16 @@ const App = () => {
         </style>
         `
       ]
+    });
+
+    bm.add('image-block', {
+      category: 'Basic',
+      label: `<div class="styleBlock"><img style="width: 90%" src="${image}"><span>Text</span></div>`,
+      attributes: { class: 'image_block' },
+      select: true,
+      content: { type: 'image' },
+      activate: true,
+      editable: true,
     });
 
     bm.add('link-block', {
