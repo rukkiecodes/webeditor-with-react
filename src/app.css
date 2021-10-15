@@ -90,7 +90,8 @@
 
 .column_one .styleBlock,
 .column_two .styleBlock,
-.column_three .styleBlock {
+.column_three .styleBlock,
+.text_block .styleBlock {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -103,11 +104,11 @@
   /* margin-top: -18px; */
 }
 
-.column_two .styleBlock span:first-child {
+/* .column_two .styleBlock span:first-child {
   font-size: 4rem;
   margin-top: 0px;
   transform: rotateZ(90deg);
-}
+} */
 
 .column_three .styleBlock span:first-child {
   /* font-size: 4rem;

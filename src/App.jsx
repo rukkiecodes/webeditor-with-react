@@ -10,6 +10,7 @@ import singleColumn from "./singleColumn.svg"
 import doubleColumn from "./doubleColumn.svg"
 import tripleColumn from "./tripleColumn.svg"
 import doubleFractionColumn from "./doubleFractionColumn.svg"
+import text from "./text.svg"
 
 
 const App = () => {
@@ -157,6 +158,22 @@ const App = () => {
           </style>`,
       ],
     })
+
+    bm.add('text-block', {
+      category: 'Basic',
+      label: `<div class="styleBlock"><img style="width: 90%" src="${text}"><span>Text</span></div>`,
+      attributes: { class: 'text_block' },
+      content: [
+        `
+        <div id="ikg9">Insert your text here</div>
+        <style>
+          #ikg9{
+            padding:10px;
+          }
+        </style>
+        `
+      ]
+    });
 
     bm.add('link-block', {
       category: 'Basic',
