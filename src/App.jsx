@@ -13,6 +13,7 @@ import doubleFractionColumn from "./doubleFractionColumn.svg"
 import text from "./text.svg"
 import image from "./image.svg"
 import video from "./video.svg"
+import map from "./map.svg"
 
 
 const App = () => {
@@ -195,6 +196,22 @@ const App = () => {
       content: { type: 'video' },
       activate: false,
       editable: true,
+    });
+
+    bm.add('map-block', {
+      category: 'Basic',
+      label: `<div class="styleBlock"><img style="width: 90%" src="${map}"><span>Map</span></div>`,
+      attributes: { class: 'map_block' },
+      content: [
+        `
+        <iframe frameborder="0" id="i4l8" src="https://maps.google.com/maps?&z=1&t=q&output=embed"></iframe>
+        <style>
+          #i4l8{
+            height:350px;
+          }
+        </style>
+        `
+      ]
     });
 
     bm.add('link-block', {
